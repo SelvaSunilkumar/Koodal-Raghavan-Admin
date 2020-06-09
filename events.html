@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <title>Event Loader</title>
+    <head>Koodal N Raghavan</head>
+
+    <body>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyApCRao6T5B1yUWpFdAZ4JyMSyFtsIxpLg",
+    authDomain: "koodal-n-raghavan.firebaseapp.com",
+    databaseURL: "https://koodal-n-raghavan.firebaseio.com",
+    projectId: "koodal-n-raghavan",
+    storageBucket: "koodal-n-raghavan.appspot.com",
+    messagingSenderId: "93679173888",
+    appId: "1:93679173888:web:3e94cb0951d6b78a50b3e5",
+    measurementId: "G-YP6710R2LL"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const databaser = firebase.database();
+
+  function writeData()
+  {
+      databaser.ref('/Events/' + document.getElementById("calenderName").value).set({
+          day: document.getElementById("day").value,
+          month: document.getElementById("month").value,
+          month_tml: document.getElementById("month_tml").value,
+          star: document.getElementById("star").value,
+          thidhi: document.getElementById("thidhi").value,
+          event: document.getElementById("event").value
+      });
+  }
+
+
+</script>
+
+    <form onsubmit="return writeData()">
+        <br><br>
+    <label>Calender Date : </label>
+    <input type="text" placeholder="Date from calender" id = "calenderName" required><br><br>
+    <label>Month in Title of docx : </label>
+    <input type="text" placeholder="Heading Month" id="month" required><br><br>
+    <label>Day : </label>
+    <input type="text" placeholder="Day" id="day" required><br><br>
+    <label>Month Number : </label>
+    <input type="number" placeholder="month tamil" id="month_tml" required><br><br>
+    <label>Star  : </label>
+    <input type="text" placeholder="Star" id="star" required><br><br>
+    <label>Thidhi : </label>
+    <input type="text" placeholder="thidhi" id="thidhi" required><br><br>
+    <label>Event : </label>
+    <input type="text" placeholder="Event" id="event"><br><br>
+    <input type="submit" value="Submit Entry" name="submit">
+    </form >
+    </body>
+</html>
